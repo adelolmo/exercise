@@ -31,28 +31,32 @@
     <title>Exercise</title>
 </head>
 <body>
-<!--         <header class="bar bar-nav">
-            <h1 class="title">Exercise at Home</h1>
-        </header>     -->
+
     <header class="bar bar-nav">
+        <a class="icon icon-left-nav pull-left" href="index.html"></a>
         <h1 class="title">Exercise at Home</h1>
-<!--           <nav class="bar bar-standard">
-<div class="segmented-control">
-    <a class="control-item" id="create" href="#">Create Session</a>
-    <a class="control-item" id="load" href="#">Load Session</a>
-    <a class="control-item" id="start" href="#">Start Session</a>
-</div>
-</nav> -->
     </header>
-    <div class="content"> 
-        <div id="welcome">
-            <img src="img/welcome.jpg">
-        </div>
-        <button class="btn btn-primary" onclick="window.location.href='load.html'">Load Session</button>
-        <button class="btn btn-primary" onclick="window.location.href='start.html'">Create Session</button>
+    <div class="bar bar-footer">
+    <a class="tab-item active" href="#" id="start">
+            Start
+        </a>
+      <!-- <a class="icon icon-compose pull-right" href="#composeModal"></a> -->
+      <!-- <small class="updated-text">Updated just now</small> -->
     </div>
+    <div class="content"> 
+        <!-- <button class="btn btn-primary btn-block" id="start">Start!</button> -->
+        <div id="session"></div>
+        <div id="timer"></div>
+    </div>
+<!--     <nav class="bar bar-tab">
+        <a class="tab-item active" href="#" id="start">
+            Start
+        </a>
+    </nav> -->
+
     <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/ratchet.js"></script>
+    <script type="text/javascript" src="js/start.js"></script>  
 </body>
 </html>
