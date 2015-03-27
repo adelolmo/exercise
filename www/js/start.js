@@ -16,10 +16,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var sessionDiv;
-var timerID = 0;
-var now;
-var end;
+ var sessionDiv;
+ var timerID = 0;
+ var now;
+ var end;
+
+// Only needed if you want to fire a callback
+window.addEventListener('push', onLoadPage);
+
+function onLoadPage () {
+    var viewName = document.getElementById('viewName').innerHTML;
+    console.log('viewName: ' + viewName);
+
+    if(viewName == 'start'){
+        console.log('start.js - onLoadPage');
+        document.querySelector("#start").addEventListener("touchend", app.startSession, false);
+        sessionDiv = document.querySelector("#session");
+        sessionDiv.innerHTML = "page loaded";
+    }
+}
 
 var app = {
 
@@ -36,8 +51,7 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         // document.querySelector("#create").addEventListener("click", this.createSession, false);
         // document.querySelector("#load").addEventListener("click", this.loadSession, false);
-        document.querySelector("#start").addEventListener("click", this.startSession, false);
-        sessionDiv = document.querySelector("#session");
+
     },
     // deviceready Event Handler
     //
@@ -57,18 +71,6 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    },
-
-    createSession: function () {
-        console.log('create');
-        // app.selectNavigationBar(document.querySelector("#create"));
-        sessionDiv.innerHTML = "create new session";
-    },
-
-    loadSession: function(){
-        console.log('load');
-        // app.selectNavigationBar(document.querySelector("#load"));
-        sessionDiv.innerHTML = "load session";
     },
 
     startSession: function () {
@@ -102,11 +104,11 @@ var app = {
 app.initialize();
 
 var exercises = ['plank|5',
-    'rest|2',
-    'side_plank_right|5',
-    'rest|2',
-    'side_plank_left|5',
-    'finish|1'];
+'rest|2',
+'side_plank_right|5',
+'rest|2',
+'side_plank_left|5',
+'finish|1'];
 
 var count;
 var counter; 
