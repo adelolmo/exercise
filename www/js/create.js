@@ -1,5 +1,4 @@
-var viewName;
-var exercises = [
+var availableExerciseList = [
 {name:"plank", duration:5},
 {name:"side_plank_right", duration:5},
 {name:"side_plank_left", duration:5}
@@ -47,9 +46,9 @@ var create = {
     },    
 
     showExercises: function () {
-    	for(var i=0; i<exercises.length; i++){
-    		name = exercises[i].name;
-    		console.log(name);
+    	for(var i=0; i<availableExerciseList.length; i++){
+    		name = availableExerciseList[i].name;
+    		console.log('exercise: ' + name);
     		// class="media-object pull-left"
     		li = $('<li class="table-view-cell"/>').html('<img src="img/'+name+'.jpg"/>');
     		$("#list").append(li);
