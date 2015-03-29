@@ -1,2 +1,2 @@
 # exercise
-Mobile App to control exercise at home
+Cordova Mobile App to control exercise at home

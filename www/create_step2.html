@@ -28,29 +28,27 @@
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-android.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Exercise</title>
+
 </head>
 <body>
     <header class="bar bar-nav">
-        <a class="icon icon-left-nav pull-left" data-transition="slide-out" href="index.html"></a>
-        <button class="btn pull-right">Next</button>
-        <h1 class="title">Create Exercise Session</h1>
-    </header>
+       <button class="btn pull-left">
+        <a href="index.html" data-ignore='push'>Cancel</a>  
+    </button>
+    <h1 class="title">Step 2 !</h1>
+</header>
 
-    <div class="content"> 
-        <div id="viewName" style="display:none">create</div>
-        <div class="content-padded">
-            <ul class="table-view" id="list">
-                <!-- <li class="table-view-cell"></li> -->
-            </ul>
-            <p>Select All</p>
-        </div>
-        <script type="text/javascript" src="js/create.js"></script>
-
+<div class="content"> 
+    <div id="viewName" style="display:none">stepTwo</div>
+    <div class="card">
+        <ul class="table-view" id="list"></ul>
     </div>
-
+    
     <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
-    <!-- // <script type="text/javascript" src="cordova.js"></script> -->
     <script type="text/javascript" src="js/ratchet.js"></script>
-    <script src="http://192.168.178.29:8081/target/target-script-min.js"></script>
+    <script type="text/javascript" src="js/create_step2.js"></script>
+    <script src="http://192.168.178.29:8081/target/target-script-min.js#anonymous"></script>
+</div>
+
 </body>
 </html>

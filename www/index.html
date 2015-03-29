@@ -27,23 +27,14 @@
     <link rel="stylesheet" type="text/css" href="css/ratchet.css" />
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-android.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-
+    <!-- <script>window._cordovaNative = true;</script> -->
     <title>Exercise</title>
 </head>
 <body>
-<!--         <header class="bar bar-nav">
-            <h1 class="title">Exercise at Home</h1>
-        </header>     -->
     <header class="bar bar-nav">
         <h1 class="title">Exercise at Home</h1>
-<!--           <nav class="bar bar-standard">
-<div class="segmented-control">
-    <a class="control-item" id="create" href="#">Create Session</a>
-    <a class="control-item" id="load" href="#">Load Session</a>
-    <a class="control-item" id="start" href="#">Start Session</a>
-</div>
-</nav> -->
     </header>
+    
     <div class="content"> 
         <div id="viewName" style="display:none">index</div>
         <div id="welcome">
@@ -56,18 +47,19 @@
                 </a>
             </li>
             <li class="table-view-cell">
-                <a class="navigate-right" data-transition="slide-in" href="create.html">
+                <a class="navigate-right" data-transition="slide-in" href="create_step1.html">
                     Create Session
                 </a>
             </li>
-        </ul>        
-<!--         <button class="btn btn-primary" onclick="window.location.href='load.html'">Load Session</button>
-        <button class="btn btn-primary" onclick="window.location.href='start.html'">Create Session</button> -->
+        </ul>
     </div>
+
     <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/ratchet.js"></script>
-    <script type="text/javascript" src="js/create.js"></script>
+    <script type="text/javascript" src="js/global.js"></script>
+    <script type="text/javascript" src="js/create_step1.js"></script>
+    <script type="text/javascript" src="js/create_step2.js"></script>
     <script type="text/javascript" src="js/start.js"></script>
     <script src="http://192.168.178.29:8081/target/target-script-min.js"></script>
 </body>

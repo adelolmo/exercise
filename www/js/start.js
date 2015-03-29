@@ -30,47 +30,22 @@ function onLoadPage () {
 
     if(viewName == 'start'){
         console.log('start.js - onLoadPage');
-        document.querySelector("#start").addEventListener("touchend", app.startSession, false);
+        document.querySelector("#start").addEventListener("touchend", start.startSession, false);
         sessionDiv = document.querySelector("#session");
         sessionDiv.innerHTML = "page loaded";
     }
 }
 
-var app = {
-
+var start = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
     },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
+
+
     bindEvents: function() {
-        console.log('bind events');
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-        // document.querySelector("#create").addEventListener("click", this.createSession, false);
-        // document.querySelector("#load").addEventListener("click", this.loadSession, false);
-
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {        
-        sessionDiv.innerHTML = "device is ready";
-        // app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+        // document.querySelector("#startScan").addEventListener("touchend", startScan, false);
+        // resultDiv = document.querySelector("#results");
     },
 
     startSession: function () {
@@ -80,28 +55,13 @@ var app = {
         end = null;
         exerciseIndex = 0;
 
-        // app.selectNavigationBar(document.querySelector("#start"));
-
-        // for(var i=0; i < exercises.length; i++){
-            // showImage(exercises, i++);    
-        // }
-        // startCount(exercises, 0);
         var secondsTimeout = exercises[exerciseIndex].split('|')[1];
         initTimer(secondsTimeout);
         showImage(exercises, exerciseIndex);
         counter=setInterval(timer, 1000); //1000 will  run it every 1 second
         // timer();
-    },
-
-    selectNavigationBar: function (element) {
-        document.querySelector("#create").setAttribute('class', 'control-item');
-        document.querySelector("#load").setAttribute('class', 'control-item');
-        document.querySelector("#start").setAttribute('class', 'control-item');
-        element.setAttribute('class', 'control-item active');        
     }
 };
-
-app.initialize();
 
 var exercises = ['plank|5',
 'rest|2',
