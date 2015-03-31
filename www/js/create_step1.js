@@ -7,8 +7,6 @@ function onLoadPage () {
 
 	if(viewName == 'stepOne'){
 		stepOne.initialize();
-	} else {
-		console.error('nothing to initialize!');
 	}
 }
 
@@ -76,6 +74,16 @@ var selector = {
 	},
 
 	unselectElement: function(element) {
+        var exerciseId = $(element).attr('id');
+        console.log('unselect exercise: ' + exerciseId);
+
+        var createSessionArray = JSON.parse(localStorage['_createSessionArray']);
+        var index = createSessionArray.indexOf(exerciseId);
+        if (index > -1) {
+            createSessionArray.splice(index, 1);
+        }
+        localStorage['_createSessionArray'] = JSON.stringify(createSessionArray);
+
 		return $(element).removeClass('mySelected');
 	},
 
