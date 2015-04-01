@@ -1,6 +1,6 @@
 # platform specific build directories
 platforms/
 # plugins added via cordova plugin add
-plugins/
+#plugins/
 
 *.sublime-*
