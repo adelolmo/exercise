@@ -11,6 +11,11 @@ function onLoadPage () {
     }
 }
 
+var hideAnimation = "slide";
+var showAnimation = "slide";
+var options = {};
+var animationDuration = 300;
+
 var stepTwo = {
 
     // Application Constructor
@@ -28,7 +33,7 @@ var stepTwo = {
         this.showExercises(createSessionArray);
     },
 
-    showExercises: function (exerciseArray) {
+    showExercises: function (exerciseArray, newIndex) {
         console.log('showExercises: ' + exerciseArray);
         $("#list").html('');
         for(var i=0; i<exerciseArray.length; i++){
@@ -39,7 +44,7 @@ var stepTwo = {
             var type = exercise.type == 'duration' ?
             '<input type="text" placeholder="Seconds Duration">'
             : '<input type="text" placeholder="Repetitions">';
-            var html = '<div>' + exercise.name + '</div>'
+            var html = '<div>' + (i+1) + '. ' + exercise.name + '</div>'
             + '<div class="pull-right">'
             + upNav
             + downNav
@@ -47,9 +52,23 @@ var stepTwo = {
             + '<img src="' + exercise.image + '">'
             + type;
 
-            li = $('<li class="table-view-cell" id="' + id + '"/>')
+              
+            var style = '';
+            if(newIndex != undefined && newIndex==i) {
+                style = ' style="display:none"';
+            }
+
+            li = $('<li class="table-view-cell"'+ style +' id="' + id + '"/>')
             .html(html);
             $("#list").append(li);
+        }
+        if(newIndex != undefined) {
+            liAnimated = $("#list").children()[newIndex];
+            $(liAnimated).show(showAnimation, options, animationDuration, (
+                function () {
+                    $(liAnimated).removeAttr( "style" );
+                    console.log('show animation done');
+                }));
         }
         changeOrder.ready();
     },
@@ -65,31 +84,33 @@ var stepTwo = {
 };
 
 var changeOrder = {
-
     moveUp: function (element) {
         var exerciseId = $(element).attr('id');
         console.log('move up: ' + exerciseId);
-       
-        var createSessionArray = JSON.parse(localStorage['_createSessionArray']);
 
-        createSessionArray = this.reorganizeArray(createSessionArray, exerciseId, -1);
-
-
-        localStorage['_createSessionArray'] = JSON.stringify(createSessionArray);
-        stepTwo.showExercises(createSessionArray);
+        $(element).hide(hideAnimation, options, animationDuration , (function () {
+            changeOrder.onAnimationDone(exerciseId, -1);
+        }));
     },
 
     moveDown: function (element) {
         var exerciseId = $(element).attr('id');
         console.log('move up: ' + exerciseId);
-  
+
+        $(element).hide(hideAnimation, options, animationDuration , (function () {
+            changeOrder.onAnimationDone(exerciseId, +1);
+        }));
+    },
+
+    onAnimationDone: function (exerciseId, newIndexDelta) {
+        console.log('hide animation done');
+
         var createSessionArray = JSON.parse(localStorage['_createSessionArray']);
-
-        createSessionArray = this.reorganizeArray(createSessionArray, exerciseId, +1);
-
+        createSessionArray = changeOrder.reorganizeArray(createSessionArray, exerciseId, newIndexDelta);
 
         localStorage['_createSessionArray'] = JSON.stringify(createSessionArray);
-        stepTwo.showExercises(createSessionArray);   },
+        stepTwo.showExercises(createSessionArray, createSessionArray.indexOf(exerciseId));  
+    },
 
     reorganizeArray: function (array, id, newIndexDelta) {
         var exerciseIndex = array.indexOf(id);
@@ -113,7 +134,7 @@ var changeOrder = {
 
                 }
             }
-        );
+            );
     },
 
     getExerciseIndex: function (liArray, exerciseId) {
