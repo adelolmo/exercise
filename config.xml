@@ -2,9 +2,9 @@
 <widget id="org.ado.github.exercise" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Exercise</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Control your daily exercise at home
     </description>
-    <author email="andoni.delolmo@gmail.com" href="http://cordova.io">
+    <author email="andoni.delolmo@gmail.com" href="http://adelolmo.github.io/exercise">
         Andoni del Olmo
     </author>
     <content src="index.html" />

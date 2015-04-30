@@ -1,2 +1,2 @@
 # exercise
-Cordova Mobile App to control exercise at home
+Control your daily exercise at home
