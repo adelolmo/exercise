@@ -20,5 +20,9 @@
   },
   "devDependencies":{},
   "author": "Andoni del Olmo",
-  "license": "Apache License Version 2.0"
+  "license": "Apache License Version 2.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/adelolmo/exercise.git"
+  }
 }
