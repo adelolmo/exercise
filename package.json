@@ -19,7 +19,9 @@
     "gulp-strip-debug": "^0.3.0",
     "gulp-uglify": "^0.3.0"
   },
-  "devDependencies":{},
+  "devDependencies":{
+    "jasmine-core": "2.4.x"
+  },
   "author": "Andoni del Olmo",
   "license": "AFL-2.0",
   "repository": {
