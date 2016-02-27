@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "dependencies":
   {
-    "cordova-icon": "^0.4.0",
+    "cordova-icon": "^0.2.0",
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^0.0.7",
     "gulp-changed": "^0.3.0",

@@ -2,16 +2,14 @@
 
 //this hook installs all your plugins
 
-// add your plugins to this list--either
-// the identifier, the filesystem location
-// or the URL
+// add your plugins to this list--either the identifier, the filesystem location or the URL
 var pluginlist = [
     //"com.ludei.webview.plus",
-    "cordova-plugin-console",
-    "cordova-plugin-device",
-    "cordova-plugin-dialogs",
+    "cordova-plugin-console@1.0.2",
+    "cordova-plugin-device@1.1.1",
+    "cordova-plugin-dialogs@1.2.0",
     //"cordova-plugin-screen-orientation",
-    "cordova-plugin-splashscreen"
+    "cordova-plugin-splashscreen@3.2.0"
 ];
 
 // no need to configure below
